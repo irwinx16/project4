@@ -30,3 +30,7 @@
   - Total
 
 
+## Wireframe
+
+![wireframe](wireframe/1.png)
+![wireframe](wireframe/2.png)
