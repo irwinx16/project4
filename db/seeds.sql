@@ -16,3 +16,4 @@ INSERT INTO products (name, price, stock, total) VALUES ('Magic Keyboard', 99.99
 INSERT INTO products (name, price, stock, total) VALUES ('Apple Pencil', 99, 'yes', 150);
 INSERT INTO products (name, price, stock, total) VALUES ('iPad 2017', 251.99, 'no', 0);
 INSERT INTO products (name, price, stock, total) VALUES ('Airport Express', 99.99, 'no', 0);
+
