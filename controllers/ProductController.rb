@@ -28,7 +28,7 @@ class ProductController < ApplicationController
     {
       success: true,
       message: "Here is more information about #{show_product.name}",
-      shown_product: show_product
+      show_product: show_product
     }.to_json
   end
 

@@ -79,8 +79,8 @@ class UserController < ApplicationController
     show_user = User.find params[:id]
     {
       success: true,
-      message: "Here's more information about #{shown_user.username}.",
-      shown_user: shown_user
+      message: "Here's more information about #{show_user.username}.",
+      show_user: show_user
     }.to_json
   end
 
@@ -90,7 +90,7 @@ class UserController < ApplicationController
     updated_user.username = @payload[:username]
 
     # not sure if this actually will update the password when they login, but it works in json
-    updated_user.password_digest = @payload[:password]
+    updated_user.password = @payload[:password]
     updated_user.save
     {
       success: true,
