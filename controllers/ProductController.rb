@@ -39,7 +39,7 @@ class ProductController < ApplicationController
     updated_product.name  = @payload[:name]
     updated_product.price = @payload[:price]
     updated_product.stock = @payload[:total] > 0
-
+    updated_product.total = @payload[:total]
     updated_product.save
     {
       success: true,
