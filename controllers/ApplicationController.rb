@@ -1,4 +1,4 @@
-class ApplicationController < Sinatra::Base 
+class ApplicationController < Sinatra::Base
 
   require 'bundler'
   Bundler.require()
@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
   use Rack::Session::Cookie,  :key => 'rack.session',
                 :path => '/',
                 :secret => 'your_secret'
-  
+
   get '/' do
     {
       success: false,

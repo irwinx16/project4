@@ -37,7 +37,6 @@ class ProductController < ApplicationController
     new_product       = Product.new
     new_product.name  = @payload[:name]
     new_product.price = @payload[:price]
-    new_product.stock = @payload[:stock]
     new_product.total = @payload[:total]
     new_product.save
     {
@@ -52,7 +51,6 @@ class ProductController < ApplicationController
     updated_product       = Product.find params[:id]
     updated_product.name  = @payload[:name]
     updated_product.price = @payload[:price]
-    updated_product.stock = @payload[:stock]
     updated_product.total = @payload[:total]
     updated_product.save
     {

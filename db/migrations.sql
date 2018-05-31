@@ -13,7 +13,7 @@ CREATE TABLE users(
 CREATE TABLE products(
   id SERIAL PRIMARY KEY,
   name VARCHAR(128),
-  price integer,
+  price DECIMAL,
   stock boolean,
   total integer
 );
