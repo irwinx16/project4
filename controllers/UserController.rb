@@ -1,16 +1,4 @@
 class UserController < ApplicationController
-
-  before do
-    payload_body = request.body.read
-    if(payload_body != "")
-      @payload = JSON.parse(payload_body).symbolize_keys
-
-        logger.info "-------PAYLOAD HERE----------------------------"
-        pp @payload
-        logger.info "-----------------------------------"
-    end
-  end
-
   # get route
   get '/' do 
     users = User.all
