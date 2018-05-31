@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   # get route
-  get '/' do 
+  get '/' do
     users = User.all
     {
       success: true,
@@ -54,7 +54,7 @@ class UserController < ApplicationController
         username: username,
         message: "Login successful #{user.username}."
       }.to_json
-    else 
+    else
       {
         success: false,
         message: "Invalid Username or Password."
