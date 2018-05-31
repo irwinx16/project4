@@ -1,16 +1,30 @@
 class ApplicationController < Sinatra::Base 
-
   require 'bundler'
   Bundler.require()
 
+  before do
+    payload_body = request.body.read
+
+    next if payload_body.empty?
+
+    @payload = JSON.parse(payload_body).symbolize_keys
+
+    puts "-----------------------------------------------HERE IS OUR PAYLOAD"
+    pp @payload
+    puts "-----------------------------------------------------------------"
+  end
+
   ActiveRecord::Base.establish_connection(
-    :adapter => 'postgresql',
-    :database => 'inventory'
+    adapter:  'postgresql',
+    database: 'inventory'
   )
 
-  use Rack::Session::Cookie,  :key => 'rack.session',
-                :path => '/',
-                :secret => 'your_secret'
+  use(
+    Rack::Session::Cookie,
+    key:    'rack.session',
+    path:   '/',
+    secret: 'your_secret'
+  )
   
   get '/' do
     {

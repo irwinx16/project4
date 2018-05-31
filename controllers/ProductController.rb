@@ -1,17 +1,4 @@
 class ProductController < ApplicationController
-
-  before do
-    payload_body = request.body.read
-
-    if(payload_body != "")
-      @payload = JSON.parse(payload_body).symbolize_keys
-
-      puts "-----------------------------------------------HERE IS OUR PAYLOAD"
-      pp @payload
-      puts "-----------------------------------------------------------------"
-    end
-  end
-
   # get route
   get '/' do
     products = Product.all
@@ -52,7 +39,7 @@ class ProductController < ApplicationController
     updated_product       = Product.find params[:id]
     updated_product.name  = @payload[:name]
     updated_product.price = @payload[:price]
-    updated_product.stock = @payload[:stock]
+    updated_product.stock = @payload[:total] > 0
     updated_product.total = @payload[:total]
     updated_product.save
     {
@@ -72,5 +59,4 @@ class ProductController < ApplicationController
       deleted_product: deleted_product
     }.to_json
   end
-
 end
