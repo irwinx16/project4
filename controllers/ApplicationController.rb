@@ -2,6 +2,8 @@ class ApplicationController < Sinatra::Base
   require 'bundler'
   Bundler.require()
 
+  require './config/environments'
+
   before do
     payload_body = request.body.read
 
@@ -14,10 +16,10 @@ class ApplicationController < Sinatra::Base
     puts "-----------------------------------------------------------------"
   end
 
-  ActiveRecord::Base.establish_connection(
-    adapter:  'postgresql',
-    database: 'inventory'
-  )
+  # ActiveRecord::Base.establish_connection(
+  #   adapter:  'postgresql',
+  #   database: 'inventory'
+  # )
 
   use(
     Rack::Session::Cookie,
@@ -49,7 +51,7 @@ class ApplicationController < Sinatra::Base
 
   options '*' do
       response.headers['Allow'] = 'HEAD, GET, POST, PUT, PATCH, DELETE'
-      response.headers['Access-Control-Allow-Origin'] = '*'
+      response.headers['Access-Control-Allow-Origin'] = 'https://project4-api.herokuapp.com'
       response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
   end
 
